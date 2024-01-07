@@ -11,7 +11,7 @@ export async function POST(req: Request) {
 
   const gather = twiml.gather({
     input: ["speech"],
-    action: `/callback?lang=${lang}`,
+    action: `/api/callback?lang=${lang}`,
     language: lang === "es" ? "es-CO" : "en-US",
     finishOnKey: "#",
   });

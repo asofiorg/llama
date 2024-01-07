@@ -10,7 +10,8 @@ export async function POST(req: Request) {
   const { searchParams } = new URL(req.url);
   const lang = (searchParams.get("lang") ?? "es") as "es" | "en";
 
-  const { SpeechResult } = await req.json();
+  const formData = await req.formData();
+  const SpeechResult = formData.get("SpeechResult");
 
   const ai = await openai.chat.completions.create({
     messages: [
